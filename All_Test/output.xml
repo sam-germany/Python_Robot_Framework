@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.3 (Python 3.7.9 on win32)" generated="20210529 19:02:34.433" rpa="false" schemaversion="2">
+<suite id="s1" name="Test 007" source="S:\001_My_Space\92_Workspace\27_Python\004\All_Test\Test_007.robot">
+<test id="s1-t1" name="MY_test Variables">
+<kw name="Set Variable" library="BuiltIn">
+<var>${var_1}</var>
+<arg>log to console</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20210529 19:02:34.792" level="INFO">${var_1} = log to console</msg>
+<status status="PASS" starttime="20210529 19:02:34.792" endtime="20210529 19:02:34.792"/>
+</kw>
+<kw name="Run Keyword" library="BuiltIn">
+<arg>${var_1}</arg>
+<arg>AAAAAAAAAAAAA</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="Log To Console" library="BuiltIn">
+<arg>AAAAAAAAAAAAA</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210529 19:02:34.793" endtime="20210529 19:02:34.793"/>
+</kw>
+<status status="PASS" starttime="20210529 19:02:34.792" endtime="20210529 19:02:34.793"/>
+</kw>
+<status status="PASS" starttime="20210529 19:02:34.791" endtime="20210529 19:02:34.793"/>
+</test>
+<test id="s1-t2" name="My_Test case 2">
+<kw name="Set Variable" library="BuiltIn">
+<var>${var_2}</var>
+<arg>YES</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20210529 19:02:34.795" level="INFO">${var_2} = YES</msg>
+<status status="PASS" starttime="20210529 19:02:34.795" endtime="20210529 19:02:34.795"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${var_2}'=='YES'</arg>
+<arg>log to console</arg>
+<arg>HHHHHHHH</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Log To Console" library="BuiltIn">
+<arg>HHHHHHHH</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210529 19:02:34.796" endtime="20210529 19:02:34.796"/>
+</kw>
+<status status="PASS" starttime="20210529 19:02:34.796" endtime="20210529 19:02:34.796"/>
+</kw>
+<status status="PASS" starttime="20210529 19:02:34.795" endtime="20210529 19:02:34.797"/>
+</test>
+<status status="PASS" starttime="20210529 19:02:34.436" endtime="20210529 19:02:34.798"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Test 007">Test 007</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
