@@ -19,7 +19,7 @@ MY_test Variables
 
 My_Test case 2
     ${var_2}=  set variable  YES                          # here we are using if condition
-    run keyword if  '${var_2}'=='YES'  log to console  HHHHHHHH
-
+    run keyword if  '${var_2}'=='YES'  log to console  YYYYYYYY
+    run keyword if  '${var_2}'=='NO'  log to console  NNNNNNNN
 
 *** Keywords ***
