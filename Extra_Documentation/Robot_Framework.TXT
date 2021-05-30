@@ -1,0 +1,290 @@
+Element Locators
+
+ID of the Element
+-----------------
+css=#email           <-- use id of the Element (here "email" is the id in the tag)
+
+ID with Tag of the Element
+-----------------------
+css=input#email      <-- use tag with the id of the Element  (input is the tag name it can be any tag in HTML <input></input>)
+
+
+Class of the Element
+----------------------
+css=.inputtext         <-- (.)  means use class of the Element
+
+Tag and Class of the Element
+----------------------------
+css=.input.inputtext   <--use tag with the class of the Element  (input is the tag name it can be any tag in HTML <input></input>)
+
+
+Any attribute of the element   Note: in the [] square brackets we can put any attribute
+---------------------------
+[type='email']         <-- here we are writing full  (attribute='value')  both of the tag 
+
+
+Tag and any Attribute of the Element
+-----------------------------------
+css=input[id='email']  <-- here we can use any attribute of this 'input' tag  (input is <input></input> tag, it can be any tag)
+
+ID and Attribute of the Element
+--------------------------------
+css=#pass[type='password']   <-- here (#pass)   is the  value of the id  means    id='pass'  and then we are putting any value 
+                                                                                                                from this tag
+
+Tag, Id and any Attribute
+-------------------------
+css=input#pass[type='password']             <--  tag = <input></input>,   id=pass,    attribute -> (type='password')  
+
+
+
+Class with any Attribute
+-----------------------
+.inputtext[type='email']           <-- class=inputtext   , Attribute -> (type='email')
+
+
+Tag and Class with any Attribute
+--------------------------------
+input.inputtext[type='email']          <-- tag=input,  class=inputtest,  Attribute ->  (type='email') 
+
+
+
+########################################################################################################
+Xpath
+------
+
+1) XPath always starts with // double forward slash
+2) till now he tell that X-Path are like buttons as we have Login / Submit buttons
+
+
+//input[@type='submit']              <--  tag name is <input></input>    so in the X-Path we start with 
+                                    double forward slash, and if we use Attribute name in the square brackets
+                                    then we should use  "@"   sign before the Attribute name
+
+//input[@name='fId_username]       <-- same as above
+
+
+Xpath with "or"   (Note:  "or" must be in small letters)
+-------------                                                 tag = <input></input> and  Attributes are "name" and "aria-label"  
+//input[@name='firstname'  or @aria-label='First Name']   <-- here we are using with Xpath two Attributes and in this
+                                                            condition either one of these Attributes should match
+
+
+//select[@name='country' or @class='last county']         
+                                                   <-- tag =    <select></select> and Attributes are "name" and "last country"  <select><select>                                                                   
+
+
+Xpath with "and"          (Note: "and" must be in small letters)
+---------------
+
+//select[@name='birthday_Day' AND @title='Day']     <-- 'and' we are using it means both the Attributes should match
+
+
+
+Searching for Any Tag/Attribute value by using (*) star sign
+--------------------------------------------------------
+
+//*[@name='birthday_Day']       <-- here we are using (*) insted of tag name so it will search for all the tags
+
+//select[@*='birthday_Day' or @*='Day']    <-- here it will search in the tag  <select></select> and Attribute which 
+                                               has  'birthday_Day'   or 'Day'   as value matched
+
+
+
+Searching with innertext   ( innertext means    <input>Log In </input>      <-- here  "Log In"   is the innertext)
+------------------------
+
+//div[text()='Log In']     <-- when we put Attribute in the square brackets then we use "@" sign,
+                               but while searching for innertext then we use   "()"   brackets as shown in the example
+                               <div></div>     <-- div  is the tag inside it we are searching for this text
+
+//a[text()='Log In']       <-- "a"  means  anchor  tag
+
+
+Searching with a partial innertext    (means that some part of text remain same and some part changes, so which part is 
+--------------------------------       stable/static  means will always be in the page so we use only that part in search)
+
+
+//div[contains(text(),'account')]    <-- here we are using  text can be  "New account"  or "create account"   so in both
+                                         cases "account" should be their, so for searching these types or partial text
+                                         we use predefined method "contains()" and use  (,) comma insted of (=) equal to sign
+
+
+//div[contains(@type,'pass')]     <-- here  type='password'  or type='pass'   <-- so in this case we can use partial innertext syntex
+
+
+-----------------------------------------------------------
+Locating from Parent tag to the child tag          (video 30)
+-----------------------------------------
+<table role="presentation">
+  <tbody>
+    <tr></tr>                 <-- here is first <tr>
+    <tr>                      <-- here starts the second <tr> 
+      <td>                         
+        <input/>
+      <td>                   <-- here ends the first <td> 
+      <td></td>              <-- here starts the second <td>
+    </tr>
+  </tbody>
+</table>
+
+
+//table[@role='presentation']/tbody/tr[2]/td[1]/input       
+                                                    <-- in this syntex we are going from <table role='prsentation> by searching Attribute
+                                                        then we go the <tbody>
+                                                        then we go to second  <tr>   by   /tr[2]
+                                                        then we go to first   <td>   by   /td[1]
+
+
+//ul[@class='tabs blue']/li[2]/label                 <-- here first we go in the <ul class='tabs blue'>  by searching Attribute
+                                                         then we go to second  <li>   by li[2]
+
+
+
+Locating from  Child tag to the Parent Tag          (video 31)
+------------------------------------------
+
+<table>
+  <tbody>
+    <tr></tr>
+    <tr>
+      <td>
+        <input type="email">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+//input[@type='email']/parent::td/parent::tr/parent::tbody/parent::table       
+                                                                       <--like this way we are going from the child tag <input>
+                                                                         till the parent tag <table>
+
+
+
+
+
+Working with siebling that is "AFTER" a given tag   (following-sibling)
+-----------------------------------------------
+
+Assume we want to go in this case to <label> tag but some how directly we are not able to go to <label> tag
+so in this case we can first go to <input> tag then we can move to its next <label> tag, that is after <input>
+
+<input id="tab2"/>
+<label></label>                      <-- here we are moving from <input> to <label> tag
+
+
+//input[@id='tab2']/following-sibling::label
+
+
+
+
+Working with siebling that is "BEFORE" a given tag    (preceding-sibling)  video 32
+-------------------------------------------------- 
+
+Assume we want to go in this case to <label> tag but some how directly we are not able to go to <label> tag
+so in this case we can first go to <input> tag then we can move to its next <label> tag, that is before <input>
+
+
+<label></label>                      <-- here we are moving from <input> to <label> tag
+<input id="tab2"/>
+
+
+
+//input[@id='tab2']/preceding-sibling::label
+
+
+
+Going from Child to Parent then to Following <td> and after that go to Child of that <td>
+-----------------------------------------------------------------------------------------
+
+<td>
+  <input id="email"/>          <--(Step-1) we start from this <input> then go to <td> after that we go to it following <td>
+</td>
+<td>                             <--(Step-2) normally it is second <td> but it when we write the "following-sibling" syntex 
+  <input type="password"/>                                        then this <td> is the first <td> after that following syntex
+</td>
+<td></td>
+
+
+//input[@id='email']/parent::td/following-sibling::td[1]/input
+
+
+---------------------------------------------------------------------------------------
+
+Going from Child to Parent then Child tag <input> inside the Partent <td>
+
+<td>
+  <input id="email"/>          <--(Step-2)  after coming here we are going to <input> tag
+</td>
+<td>                             <--(Step-1) we are starting from this input, then we move to above <td> by using "preceding-sibling"
+  <input id="pass"/>                                     
+</td>
+<td></td>
+
+
+//input[@id='pass']/parent::td/preceding-sibling::td/input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
