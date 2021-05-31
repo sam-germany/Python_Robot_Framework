@@ -7,18 +7,19 @@ Library  SeleniumLibrary
 Library  Collections
 Library  SeleniumLibrary
 Library  Collections
+Library  SeleniumLibrary
+Resource  ../Resources/Resources_1.robot
 
 *** Variables ***
-${Browser_1}  Firefox
-${var1}  http://www.thetestingworld.com
-
+${Browser_3}  Firefox
+${URL_3}  www.facebook.com
 
 
 *** Test Cases ***
 TC_001 Login Logout                                       # Video 59
-    Open Browser  ${var1}  ${Browser_1}
-    Maximize Browser Window
-
+    Start_Browser_and_Maximize_2  ${URL_3}  ${Browser_3}
+    Input Text  name:fld_username  AAAAAAA
+      
 
 
 
